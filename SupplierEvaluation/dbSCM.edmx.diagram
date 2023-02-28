@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d751dda994d941cbb72e37d7d68e582b" Name="Diagram1">
+        <EntityTypeShape EntityType="dbSCMModel.PU_EvaluateSupplier" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="dbSCMModel.PU_EvaluateSupplierResult" Width="1.5" PointX="3.125" PointY="0.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="dbSCMModel.vd_mstr" Width="1.5" PointX="5.75" PointY="0.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="dbSCMModel.AL_Vendor" Width="1.5" PointX="7.75" PointY="0.5" IsExpanded="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

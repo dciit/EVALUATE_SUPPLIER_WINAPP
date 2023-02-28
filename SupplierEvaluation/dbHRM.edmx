@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dbHRMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="EMCL">
+          <Key>
+            <PropertyRef Name="YM" />
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="YM" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CODE" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="STSS" Type="nvarchar" MaxLength="50" />
+          <Property Name="STSO" Type="nvarchar" MaxLength="50" />
+          <Property Name="STSH" Type="nvarchar" MaxLength="50" />
+          <Property Name="CR_BY" Type="nvarchar" MaxLength="50" />
+          <Property Name="CR_DT" Type="date" />
+          <Property Name="UPD_BY" Type="nvarchar" MaxLength="50" />
+          <Property Name="UPD_DT" Type="date" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="CODE" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PREN" Type="nvarchar" MaxLength="50" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="200" />
+          <Property Name="SURN" Type="nvarchar" MaxLength="200" />
+          <Property Name="SEX" Type="nvarchar" MaxLength="20" />
+          <Property Name="TPREN" Type="nvarchar" MaxLength="20" />
+          <Property Name="TNAME" Type="nvarchar" MaxLength="200" />
+          <Property Name="TSURN" Type="nvarchar" MaxLength="200" />
+          <Property Name="TSEX" Type="nvarchar" MaxLength="20" />
+          <Property Name="BIRTH" Type="date" />
+          <Property Name="JOIN" Type="date" />
+          <Property Name="RESIGN" Type="date" />
+          <Property Name="RELIGION" Type="nvarchar" MaxLength="50" />
+          <Property Name="RSTYPE" Type="nvarchar" MaxLength="50" />
+          <Property Name="DVCD" Type="nvarchar" MaxLength="10" />
+          <Property Name="WTYPE" Type="nvarchar" MaxLength="50" />
+          <Property Name="WSTS" Type="nvarchar" MaxLength="50" />
+          <Property Name="POSIT" Type="nvarchar" MaxLength="50" />
+          <Property Name="P_RANK" Type="nvarchar" MaxLength="10" />
+          <Property Name="P_GRADE" Type="nvarchar" MaxLength="10" />
+          <Property Name="BUS" Type="nvarchar" MaxLength="50" />
+          <Property Name="STOP" Type="nvarchar" MaxLength="50" />
+          <Property Name="TCADDR3" Type="nvarchar" MaxLength="50" />
+          <Property Name="TCADDR4" Type="nvarchar" MaxLength="50" />
+          <Property Name="TCTEL" Type="nvarchar" MaxLength="50" />
+          <Property Name="TELEPHONE" Type="nvarchar" MaxLength="50" />
+          <Property Name="MAIL" Type="nvarchar" MaxLength="50" />
+          <Property Name="OTYPE" Type="nvarchar" MaxLength="50" />
+          <Property Name="DLRATE" Type="nvarchar" MaxLength="50" />
+          <Property Name="GRPOT" Type="nvarchar" MaxLength="50" />
+          <Property Name="NICKNAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="COSTCENTER" Type="nvarchar" MaxLength="50" />
+          <Property Name="COMPANY" Type="nvarchar" MaxLength="50" />
+          <Property Name="TPOSINAME" Type="nvarchar" MaxLength="150" />
+          <Property Name="TPOSIJOIN_DT" Type="date" />
+          <Property Name="ANNUALCAL_DT" Type="date" />
+          <Property Name="ANDON" Type="nvarchar" MaxLength="500" />
+          <Property Name="LOCATION" Type="nvarchar" MaxLength="500" />
+          <Property Name="WORKCENTER" Type="nvarchar" MaxLength="10" />
+          <Property Name="BUDGETTYPE" Type="nvarchar" MaxLength="10" />
+          <Property Name="LineCode" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityContainer Name="dbHRMModelStoreContainer">
+          <EntitySet Name="EMCL" EntityType="Self.EMCL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbHRMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PREN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SURN" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SEX" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TPREN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TNAME" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TSURN" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TSEX" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="BIRTH" Type="DateTime" Precision="0" />
+          <Property Name="JOIN" Type="DateTime" Precision="0" />
+          <Property Name="RESIGN" Type="DateTime" Precision="0" />
+          <Property Name="RELIGION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RSTYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DVCD" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="WTYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WSTS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="POSIT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="P_RANK" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="P_GRADE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="BUS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="STOP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TCADDR3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TCADDR4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TCTEL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TELEPHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OTYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DLRATE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GRPOT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NICKNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="COSTCENTER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="COMPANY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TPOSINAME" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="TPOSIJOIN_DT" Type="DateTime" Precision="0" />
+          <Property Name="ANNUALCAL_DT" Type="DateTime" Precision="0" />
+          <Property Name="ANDON" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="LOCATION" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="WORKCENTER" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="BUDGETTYPE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="LineCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="dbHRMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbHRMModelStoreContainer" CdmEntityContainer="dbHRMEntities">
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="dbHRMModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="PREN" ColumnName="PREN" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="SURN" ColumnName="SURN" />
+                <ScalarProperty Name="SEX" ColumnName="SEX" />
+                <ScalarProperty Name="TPREN" ColumnName="TPREN" />
+                <ScalarProperty Name="TNAME" ColumnName="TNAME" />
+                <ScalarProperty Name="TSURN" ColumnName="TSURN" />
+                <ScalarProperty Name="TSEX" ColumnName="TSEX" />
+                <ScalarProperty Name="BIRTH" ColumnName="BIRTH" />
+                <ScalarProperty Name="JOIN" ColumnName="JOIN" />
+                <ScalarProperty Name="RESIGN" ColumnName="RESIGN" />
+                <ScalarProperty Name="RELIGION" ColumnName="RELIGION" />
+                <ScalarProperty Name="RSTYPE" ColumnName="RSTYPE" />
+                <ScalarProperty Name="DVCD" ColumnName="DVCD" />
+                <ScalarProperty Name="WTYPE" ColumnName="WTYPE" />
+                <ScalarProperty Name="WSTS" ColumnName="WSTS" />
+                <ScalarProperty Name="POSIT" ColumnName="POSIT" />
+                <ScalarProperty Name="P_RANK" ColumnName="P_RANK" />
+                <ScalarProperty Name="P_GRADE" ColumnName="P_GRADE" />
+                <ScalarProperty Name="BUS" ColumnName="BUS" />
+                <ScalarProperty Name="STOP" ColumnName="STOP" />
+                <ScalarProperty Name="TCADDR3" ColumnName="TCADDR3" />
+                <ScalarProperty Name="TCADDR4" ColumnName="TCADDR4" />
+                <ScalarProperty Name="TCTEL" ColumnName="TCTEL" />
+                <ScalarProperty Name="TELEPHONE" ColumnName="TELEPHONE" />
+                <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+                <ScalarProperty Name="OTYPE" ColumnName="OTYPE" />
+                <ScalarProperty Name="DLRATE" ColumnName="DLRATE" />
+                <ScalarProperty Name="GRPOT" ColumnName="GRPOT" />
+                <ScalarProperty Name="NICKNAME" ColumnName="NICKNAME" />
+                <ScalarProperty Name="COSTCENTER" ColumnName="COSTCENTER" />
+                <ScalarProperty Name="COMPANY" ColumnName="COMPANY" />
+                <ScalarProperty Name="TPOSINAME" ColumnName="TPOSINAME" />
+                <ScalarProperty Name="TPOSIJOIN_DT" ColumnName="TPOSIJOIN_DT" />
+                <ScalarProperty Name="ANNUALCAL_DT" ColumnName="ANNUALCAL_DT" />
+                <ScalarProperty Name="ANDON" ColumnName="ANDON" />
+                <ScalarProperty Name="LOCATION" ColumnName="LOCATION" />
+                <ScalarProperty Name="WORKCENTER" ColumnName="WORKCENTER" />
+                <ScalarProperty Name="BUDGETTYPE" ColumnName="BUDGETTYPE" />
+                <ScalarProperty Name="LineCode" ColumnName="LineCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

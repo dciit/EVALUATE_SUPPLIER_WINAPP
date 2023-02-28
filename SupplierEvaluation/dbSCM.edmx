@@ -1,0 +1,498 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dbSCMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AL_Vendor">
+          <Key>
+            <PropertyRef Name="Vender" />
+          </Key>
+          <Property Name="Vender" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="VenderName" Type="nvarchar" MaxLength="300" />
+          <Property Name="AbbreName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Route" Type="nvarchar" MaxLength="1" />
+          <Property Name="Currency" Type="nvarchar" MaxLength="5" />
+          <Property Name="EMailPO" Type="nvarchar" MaxLength="300" />
+          <Property Name="BOIType" Type="nvarchar" MaxLength="10" />
+          <Property Name="PersonIncharge" Type="nvarchar" MaxLength="50" />
+          <Property Name="isMilkRun" Type="bit" />
+          <Property Name="VenderCard" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="PU_EvaluateSupplier">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vd_addr" Type="nvarchar" MaxLength="50" />
+          <Property Name="EInvoice" Type="nvarchar" MaxLength="50" />
+          <Property Name="rnd_invno_sup" Type="nvarchar" MaxLength="50" />
+          <Property Name="rnd_date" Type="date" Nullable="false" />
+          <Property Name="rnd_time" Type="nvarchar" MaxLength="10" />
+          <Property Name="Comment" Type="ntext" />
+          <Property Name="Remark" Type="ntext" />
+          <Property Name="point" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="InputType" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="30" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="30" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PU_EvaluateSupplierResult">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="datayear" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="datamonth" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SupplierNO" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="delivery_point" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="document_point" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="correct_point" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="safety_point" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="result_point" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="result_grade" Type="nvarchar" MaxLength="2" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="30" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="vd_mstr">
+          <Key>
+            <PropertyRef Name="vd_addr" />
+          </Key>
+          <Property Name="vd_addr" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="vd_cr_terms" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_buyer" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_disc_pct" Type="float" />
+          <Property Name="vd_shipvia" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_partial" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_rmks" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_ap_acct" Type="float" />
+          <Property Name="vd_ap_cc" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_pur_acct" Type="float" />
+          <Property Name="vd_pur_cc" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_pur_cntct" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_ap_cntct" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_1099" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_sort" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_last_ck" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_balance" Type="float" />
+          <Property Name="vd_hold" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_tax_id" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_taxable" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_user1" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_user2" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_curr" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_lang" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_vt_id" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd__chr01" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd__chr02" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd__chr03" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd__chr04" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd__chr05" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd__chr06" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd__chr07" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd__chr08" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd__chr09" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd__chr10" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd__dte01" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd__dte02" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd__dec01" Type="float" />
+          <Property Name="vd__dec02" Type="float" />
+          <Property Name="vd__log01" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_fob" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_debtor" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_bank" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_ckfrm" Type="float" />
+          <Property Name="vd_pay_spec" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_remit" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_type" Type="float" />
+          <Property Name="vd_mod_date" Type="datetime" />
+          <Property Name="vd_userid" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_prepay" Type="float" />
+          <Property Name="vd_conrep_logic" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_pr_list" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_fr_list" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_fr_terms" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_fr_min_wt" Type="float" />
+          <Property Name="vd_drft_bal" Type="float" />
+          <Property Name="vd_lc_bal" Type="float" />
+          <Property Name="vd_pr_list2" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_fix_pr" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_tid_notice" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_promo" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_misc_cr" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_rcv_so_price" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_rcv_held_so" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_tp_use_pct" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_tp_pct" Type="float" />
+          <Property Name="vd_ex_ratetype" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_db" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd__qadc01" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd__qadc02" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd__qadc03" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd__qadc04" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd__qadd01" Type="float" />
+          <Property Name="vd__qadd02" Type="float" />
+          <Property Name="vd__qadl01" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd__qadl02" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd__qadt01" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd__qadt02" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd__qadi01" Type="float" />
+          <Property Name="vd__qadi02" Type="float" />
+          <Property Name="vd__qadl03" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd__qadl04" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_ap_sub" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_pur_sub" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_tot_terms_code" Type="nvarchar" MaxLength="255" />
+          <Property Name="vd_domain" Type="nvarchar" MaxLength="255" />
+          <Property Name="oid_vd_mstr" Type="float" />
+          <Property Name="vd_cycle_delivery" Type="nvarchar" MaxLength="7" />
+          <Property Name="vd_local_import_type" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="dbSCMModelStoreContainer">
+          <EntitySet Name="AL_Vendor" EntityType="Self.AL_Vendor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PU_EvaluateSupplier" EntityType="Self.PU_EvaluateSupplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PU_EvaluateSupplierResult" EntityType="Self.PU_EvaluateSupplierResult" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vd_mstr" EntityType="Self.vd_mstr" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbSCMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="PU_EvaluateSupplier">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vd_addr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EInvoice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rnd_invno_sup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rnd_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="rnd_time" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="point" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="InputType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PU_EvaluateSupplierResult">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="datayear" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="datamonth" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SupplierNO" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="delivery_point" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="document_point" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="correct_point" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="safety_point" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="result_point" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="result_grade" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="dbSCMEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PU_EvaluateSupplier" EntityType="Self.PU_EvaluateSupplier" />
+          <EntitySet Name="PU_EvaluateSupplierResult" EntityType="Self.PU_EvaluateSupplierResult" />
+          <EntitySet Name="vd_mstr" EntityType="dbSCMModel.vd_mstr" />
+          <EntitySet Name="AL_Vendor" EntityType="dbSCMModel.AL_Vendor" />
+        </EntityContainer>
+        <EntityType Name="vd_mstr">
+          <Key>
+            <PropertyRef Name="vd_addr" />
+          </Key>
+          <Property Name="vd_addr" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_cr_terms" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_buyer" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_disc_pct" Type="Double" />
+          <Property Name="vd_shipvia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_partial" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_rmks" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_ap_acct" Type="Double" />
+          <Property Name="vd_ap_cc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_pur_acct" Type="Double" />
+          <Property Name="vd_pur_cc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_pur_cntct" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_ap_cntct" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_1099" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_sort" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_last_ck" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_balance" Type="Double" />
+          <Property Name="vd_hold" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_tax_id" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_taxable" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_user1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_user2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_curr" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_lang" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_vt_id" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd__chr01" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd__chr02" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd__chr03" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd__chr04" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd__chr05" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd__chr06" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd__chr07" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd__chr08" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd__chr09" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd__chr10" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd__dte01" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd__dte02" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd__dec01" Type="Double" />
+          <Property Name="vd__dec02" Type="Double" />
+          <Property Name="vd__log01" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_fob" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_debtor" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_bank" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_ckfrm" Type="Double" />
+          <Property Name="vd_pay_spec" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_remit" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_type" Type="Double" />
+          <Property Name="vd_mod_date" Type="DateTime" Precision="3" />
+          <Property Name="vd_userid" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_prepay" Type="Double" />
+          <Property Name="vd_conrep_logic" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_pr_list" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_fr_list" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_fr_terms" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_fr_min_wt" Type="Double" />
+          <Property Name="vd_drft_bal" Type="Double" />
+          <Property Name="vd_lc_bal" Type="Double" />
+          <Property Name="vd_pr_list2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_fix_pr" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_tid_notice" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_promo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_misc_cr" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_rcv_so_price" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_rcv_held_so" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_tp_use_pct" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_tp_pct" Type="Double" />
+          <Property Name="vd_ex_ratetype" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_db" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd__qadc01" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd__qadc02" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd__qadc03" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd__qadc04" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd__qadd01" Type="Double" />
+          <Property Name="vd__qadd02" Type="Double" />
+          <Property Name="vd__qadl01" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd__qadl02" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd__qadt01" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd__qadt02" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd__qadi01" Type="Double" />
+          <Property Name="vd__qadi02" Type="Double" />
+          <Property Name="vd__qadl03" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd__qadl04" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_ap_sub" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_pur_sub" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_tot_terms_code" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="vd_domain" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="oid_vd_mstr" Type="Double" />
+          <Property Name="vd_cycle_delivery" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Name="vd_local_import_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AL_Vendor">
+          <Key>
+            <PropertyRef Name="Vender" />
+          </Key>
+          <Property Name="Vender" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="VenderName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="AbbreName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Route" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Currency" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="EMailPO" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="BOIType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PersonIncharge" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isMilkRun" Type="Boolean" />
+          <Property Name="VenderCard" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbSCMModelStoreContainer" CdmEntityContainer="dbSCMEntities2">
+          <EntitySetMapping Name="PU_EvaluateSupplier">
+            <EntityTypeMapping TypeName="dbSCMModel.PU_EvaluateSupplier">
+              <MappingFragment StoreEntitySet="PU_EvaluateSupplier">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="vd_addr" ColumnName="vd_addr" />
+                <ScalarProperty Name="EInvoice" ColumnName="EInvoice" />
+                <ScalarProperty Name="rnd_invno_sup" ColumnName="rnd_invno_sup" />
+                <ScalarProperty Name="rnd_date" ColumnName="rnd_date" />
+                <ScalarProperty Name="rnd_time" ColumnName="rnd_time" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="point" ColumnName="point" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="InputType" ColumnName="InputType" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PU_EvaluateSupplierResult">
+            <EntityTypeMapping TypeName="dbSCMModel.PU_EvaluateSupplierResult">
+              <MappingFragment StoreEntitySet="PU_EvaluateSupplierResult">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="datayear" ColumnName="datayear" />
+                <ScalarProperty Name="datamonth" ColumnName="datamonth" />
+                <ScalarProperty Name="SupplierNO" ColumnName="SupplierNO" />
+                <ScalarProperty Name="delivery_point" ColumnName="delivery_point" />
+                <ScalarProperty Name="document_point" ColumnName="document_point" />
+                <ScalarProperty Name="correct_point" ColumnName="correct_point" />
+                <ScalarProperty Name="safety_point" ColumnName="safety_point" />
+                <ScalarProperty Name="result_point" ColumnName="result_point" />
+                <ScalarProperty Name="result_grade" ColumnName="result_grade" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vd_mstr">
+            <EntityTypeMapping TypeName="dbSCMModel.vd_mstr">
+              <MappingFragment StoreEntitySet="vd_mstr">
+                <ScalarProperty Name="vd_local_import_type" ColumnName="vd_local_import_type" />
+                <ScalarProperty Name="vd_cycle_delivery" ColumnName="vd_cycle_delivery" />
+                <ScalarProperty Name="oid_vd_mstr" ColumnName="oid_vd_mstr" />
+                <ScalarProperty Name="vd_domain" ColumnName="vd_domain" />
+                <ScalarProperty Name="vd_tot_terms_code" ColumnName="vd_tot_terms_code" />
+                <ScalarProperty Name="vd_pur_sub" ColumnName="vd_pur_sub" />
+                <ScalarProperty Name="vd_ap_sub" ColumnName="vd_ap_sub" />
+                <ScalarProperty Name="vd__qadl04" ColumnName="vd__qadl04" />
+                <ScalarProperty Name="vd__qadl03" ColumnName="vd__qadl03" />
+                <ScalarProperty Name="vd__qadi02" ColumnName="vd__qadi02" />
+                <ScalarProperty Name="vd__qadi01" ColumnName="vd__qadi01" />
+                <ScalarProperty Name="vd__qadt02" ColumnName="vd__qadt02" />
+                <ScalarProperty Name="vd__qadt01" ColumnName="vd__qadt01" />
+                <ScalarProperty Name="vd__qadl02" ColumnName="vd__qadl02" />
+                <ScalarProperty Name="vd__qadl01" ColumnName="vd__qadl01" />
+                <ScalarProperty Name="vd__qadd02" ColumnName="vd__qadd02" />
+                <ScalarProperty Name="vd__qadd01" ColumnName="vd__qadd01" />
+                <ScalarProperty Name="vd__qadc04" ColumnName="vd__qadc04" />
+                <ScalarProperty Name="vd__qadc03" ColumnName="vd__qadc03" />
+                <ScalarProperty Name="vd__qadc02" ColumnName="vd__qadc02" />
+                <ScalarProperty Name="vd__qadc01" ColumnName="vd__qadc01" />
+                <ScalarProperty Name="vd_db" ColumnName="vd_db" />
+                <ScalarProperty Name="vd_ex_ratetype" ColumnName="vd_ex_ratetype" />
+                <ScalarProperty Name="vd_tp_pct" ColumnName="vd_tp_pct" />
+                <ScalarProperty Name="vd_tp_use_pct" ColumnName="vd_tp_use_pct" />
+                <ScalarProperty Name="vd_rcv_held_so" ColumnName="vd_rcv_held_so" />
+                <ScalarProperty Name="vd_rcv_so_price" ColumnName="vd_rcv_so_price" />
+                <ScalarProperty Name="vd_misc_cr" ColumnName="vd_misc_cr" />
+                <ScalarProperty Name="vd_promo" ColumnName="vd_promo" />
+                <ScalarProperty Name="vd_tid_notice" ColumnName="vd_tid_notice" />
+                <ScalarProperty Name="vd_fix_pr" ColumnName="vd_fix_pr" />
+                <ScalarProperty Name="vd_pr_list2" ColumnName="vd_pr_list2" />
+                <ScalarProperty Name="vd_lc_bal" ColumnName="vd_lc_bal" />
+                <ScalarProperty Name="vd_drft_bal" ColumnName="vd_drft_bal" />
+                <ScalarProperty Name="vd_fr_min_wt" ColumnName="vd_fr_min_wt" />
+                <ScalarProperty Name="vd_fr_terms" ColumnName="vd_fr_terms" />
+                <ScalarProperty Name="vd_fr_list" ColumnName="vd_fr_list" />
+                <ScalarProperty Name="vd_pr_list" ColumnName="vd_pr_list" />
+                <ScalarProperty Name="vd_conrep_logic" ColumnName="vd_conrep_logic" />
+                <ScalarProperty Name="vd_prepay" ColumnName="vd_prepay" />
+                <ScalarProperty Name="vd_userid" ColumnName="vd_userid" />
+                <ScalarProperty Name="vd_mod_date" ColumnName="vd_mod_date" />
+                <ScalarProperty Name="vd_type" ColumnName="vd_type" />
+                <ScalarProperty Name="vd_remit" ColumnName="vd_remit" />
+                <ScalarProperty Name="vd_pay_spec" ColumnName="vd_pay_spec" />
+                <ScalarProperty Name="vd_ckfrm" ColumnName="vd_ckfrm" />
+                <ScalarProperty Name="vd_bank" ColumnName="vd_bank" />
+                <ScalarProperty Name="vd_debtor" ColumnName="vd_debtor" />
+                <ScalarProperty Name="vd_fob" ColumnName="vd_fob" />
+                <ScalarProperty Name="vd__log01" ColumnName="vd__log01" />
+                <ScalarProperty Name="vd__dec02" ColumnName="vd__dec02" />
+                <ScalarProperty Name="vd__dec01" ColumnName="vd__dec01" />
+                <ScalarProperty Name="vd__dte02" ColumnName="vd__dte02" />
+                <ScalarProperty Name="vd__dte01" ColumnName="vd__dte01" />
+                <ScalarProperty Name="vd__chr10" ColumnName="vd__chr10" />
+                <ScalarProperty Name="vd__chr09" ColumnName="vd__chr09" />
+                <ScalarProperty Name="vd__chr08" ColumnName="vd__chr08" />
+                <ScalarProperty Name="vd__chr07" ColumnName="vd__chr07" />
+                <ScalarProperty Name="vd__chr06" ColumnName="vd__chr06" />
+                <ScalarProperty Name="vd__chr05" ColumnName="vd__chr05" />
+                <ScalarProperty Name="vd__chr04" ColumnName="vd__chr04" />
+                <ScalarProperty Name="vd__chr03" ColumnName="vd__chr03" />
+                <ScalarProperty Name="vd__chr02" ColumnName="vd__chr02" />
+                <ScalarProperty Name="vd__chr01" ColumnName="vd__chr01" />
+                <ScalarProperty Name="vd_vt_id" ColumnName="vd_vt_id" />
+                <ScalarProperty Name="vd_lang" ColumnName="vd_lang" />
+                <ScalarProperty Name="vd_curr" ColumnName="vd_curr" />
+                <ScalarProperty Name="vd_user2" ColumnName="vd_user2" />
+                <ScalarProperty Name="vd_user1" ColumnName="vd_user1" />
+                <ScalarProperty Name="vd_taxable" ColumnName="vd_taxable" />
+                <ScalarProperty Name="vd_tax_id" ColumnName="vd_tax_id" />
+                <ScalarProperty Name="vd_hold" ColumnName="vd_hold" />
+                <ScalarProperty Name="vd_balance" ColumnName="vd_balance" />
+                <ScalarProperty Name="vd_last_ck" ColumnName="vd_last_ck" />
+                <ScalarProperty Name="vd_sort" ColumnName="vd_sort" />
+                <ScalarProperty Name="vd_1099" ColumnName="vd_1099" />
+                <ScalarProperty Name="vd_ap_cntct" ColumnName="vd_ap_cntct" />
+                <ScalarProperty Name="vd_pur_cntct" ColumnName="vd_pur_cntct" />
+                <ScalarProperty Name="vd_pur_cc" ColumnName="vd_pur_cc" />
+                <ScalarProperty Name="vd_pur_acct" ColumnName="vd_pur_acct" />
+                <ScalarProperty Name="vd_ap_cc" ColumnName="vd_ap_cc" />
+                <ScalarProperty Name="vd_ap_acct" ColumnName="vd_ap_acct" />
+                <ScalarProperty Name="vd_rmks" ColumnName="vd_rmks" />
+                <ScalarProperty Name="vd_partial" ColumnName="vd_partial" />
+                <ScalarProperty Name="vd_shipvia" ColumnName="vd_shipvia" />
+                <ScalarProperty Name="vd_disc_pct" ColumnName="vd_disc_pct" />
+                <ScalarProperty Name="vd_buyer" ColumnName="vd_buyer" />
+                <ScalarProperty Name="vd_cr_terms" ColumnName="vd_cr_terms" />
+                <ScalarProperty Name="vd_addr" ColumnName="vd_addr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AL_Vendor">
+            <EntityTypeMapping TypeName="dbSCMModel.AL_Vendor">
+              <MappingFragment StoreEntitySet="AL_Vendor">
+                <ScalarProperty Name="VenderCard" ColumnName="VenderCard" />
+                <ScalarProperty Name="isMilkRun" ColumnName="isMilkRun" />
+                <ScalarProperty Name="PersonIncharge" ColumnName="PersonIncharge" />
+                <ScalarProperty Name="BOIType" ColumnName="BOIType" />
+                <ScalarProperty Name="EMailPO" ColumnName="EMailPO" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="Route" ColumnName="Route" />
+                <ScalarProperty Name="AbbreName" ColumnName="AbbreName" />
+                <ScalarProperty Name="VenderName" ColumnName="VenderName" />
+                <ScalarProperty Name="Vender" ColumnName="Vender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
