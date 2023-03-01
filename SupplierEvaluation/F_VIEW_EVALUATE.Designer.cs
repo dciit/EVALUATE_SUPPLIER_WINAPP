@@ -61,7 +61,6 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.lbGrade = new System.Windows.Forms.Label();
-            this.btnEvaluation = new System.Windows.Forms.Button();
             this.lbVenderName = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             this.G_D.SuspendLayout();
@@ -416,23 +415,6 @@
             this.lbGrade.Text = "A";
             this.lbGrade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnEvaluation
-            // 
-            this.btnEvaluation.BackColor = System.Drawing.Color.Green;
-            this.btnEvaluation.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEvaluation.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.btnEvaluation.ForeColor = System.Drawing.Color.White;
-            this.btnEvaluation.Image = global::SupplierEvaluation.Properties.Resources.icons8_export_pdf_30;
-            this.btnEvaluation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEvaluation.Location = new System.Drawing.Point(403, 11);
-            this.btnEvaluation.Name = "btnEvaluation";
-            this.btnEvaluation.Padding = new System.Windows.Forms.Padding(12, 0, 12, 0);
-            this.btnEvaluation.Size = new System.Drawing.Size(277, 47);
-            this.btnEvaluation.TabIndex = 52;
-            this.btnEvaluation.Text = "EXPORT TO PDF";
-            this.btnEvaluation.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEvaluation.UseVisualStyleBackColor = false;
-            // 
             // lbVenderName
             // 
             this.lbVenderName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
@@ -449,7 +431,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(687, 584);
             this.Controls.Add(this.lbVenderName);
-            this.Controls.Add(this.btnEvaluation);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.G_D);
@@ -512,7 +493,6 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label lbGrade;
-        private System.Windows.Forms.Button btnEvaluation;
         private System.Windows.Forms.Label lbVenderName;
     }
 }

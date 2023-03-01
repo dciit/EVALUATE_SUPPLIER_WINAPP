@@ -18,8 +18,8 @@ namespace SupplierEvaluation
             string[] args = new string[] { "41256", "XXX" };
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DCI_EVALUATION_SUPPLIER(args[0], args[1]));
-            //Application.Run(new F_MANAGE_DELIVERY(args[0], args[1]));
+            //Application.Run(new DCI_EVALUATION_SUPPLIER(args[0], args[1]));
+            Application.Run(new F_MANAGE_DELIVERY(args[0], args[1]));
 
             //if ()
             //{

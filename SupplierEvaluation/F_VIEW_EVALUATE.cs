@@ -26,7 +26,7 @@ namespace SupplierEvaluation
             lbVenderName.Text = frmDelivery._VD_NAME;
             lbMonthYear.Text = frmDelivery._MONTH + ", " + frmDelivery._YEAR;
             //MEvaluate data = service.getEvaResult(f_MANAGE_DELIVERY._VD_CODE);
-            List<PU_EvaluateSupplierResult> data = service.getEvaResult(frmDelivery._VD_CODE, frmDelivery._YEAR, frmDelivery._MONTH_INDEX);
+            List<PU_EvaluateSupplierResult> data = service.getEvaResult(frmDelivery._VD_CODE, frmDelivery._YEAR, frmDelivery._MONTH_INDEX+1);
             if (data.Count > 0)
             {
                 lbGrade.Text = data[0].result_grade;
@@ -36,5 +36,6 @@ namespace SupplierEvaluation
                 ScoreD.Text = data[0].safety_point.ToString();
             }
         }
+
     }
 }

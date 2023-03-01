@@ -161,6 +161,9 @@ namespace SupplierEvaluation
             if (_VD_INDEX >0 )
             {
                 _VD_NAME = cbVender.SelectedItem.ToString();
+                _VD_CODE = listVender[cbVender.SelectedIndex - 1].Vender;
+                _MONTH_INDEX = cbMonth.SelectedIndex;
+                _YEAR = cbYear.SelectedItem.ToString();
                 F_VIEW_EVALUATE frmViewEvaluate = new F_VIEW_EVALUATE(this);
                 frmViewEvaluate.ShowDialog();
             }
