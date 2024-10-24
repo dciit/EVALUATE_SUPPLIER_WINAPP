@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbIoTFac2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="etd_model_detail">
+          <Key>
+            <PropertyRef Name="m_id" />
+            <PropertyRef Name="p_id" />
+            <PropertyRef Name="pt_id" />
+          </Key>
+          <Property Name="m_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="p_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pt_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="r_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="p_mid_dimension" Type="float" Nullable="false" />
+          <Property Name="p_max_dimension" Type="float" Nullable="false" />
+          <Property Name="p_min_dimension" Type="float" Nullable="false" />
+          <Property Name="p_cycletime" Type="float" Nullable="false" />
+          <Property Name="p_date" Type="smalldatetime" Nullable="false" />
+          <Property Name="p_user" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="p_status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="etd_mst_model">
+          <Key>
+            <PropertyRef Name="m_id" />
+          </Key>
+          <Property Name="m_id" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="m_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="m_date" Type="smalldatetime" Nullable="false" />
+          <Property Name="m_user" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="etd_mst_program">
+          <Key>
+            <PropertyRef Name="pro_id" />
+          </Key>
+          <Property Name="pro_id" Type="int" Nullable="false" />
+          <Property Name="pro_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="yc" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="etd_program_detail">
+          <Key>
+            <PropertyRef Name="m_id" />
+          </Key>
+          <Property Name="m_id" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="pro_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="dbIoTFac2ModelStoreContainer">
+          <EntitySet Name="etd_model_detail" EntityType="Self.etd_model_detail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="etd_mst_model" EntityType="Self.etd_mst_model" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="etd_mst_program" EntityType="Self.etd_mst_program" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="etd_program_detail" EntityType="Self.etd_program_detail" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbIoTFac2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="etd_model_detail">
+          <Key>
+            <PropertyRef Name="m_id" />
+            <PropertyRef Name="p_id" />
+            <PropertyRef Name="pt_id" />
+          </Key>
+          <Property Name="m_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="p_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pt_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="r_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="p_mid_dimension" Type="Double" Nullable="false" />
+          <Property Name="p_max_dimension" Type="Double" Nullable="false" />
+          <Property Name="p_min_dimension" Type="Double" Nullable="false" />
+          <Property Name="p_cycletime" Type="Double" Nullable="false" />
+          <Property Name="p_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="p_user" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="p_status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="etd_mst_model">
+          <Key>
+            <PropertyRef Name="m_id" />
+          </Key>
+          <Property Name="m_id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="m_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="m_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="m_user" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="etd_mst_program">
+          <Key>
+            <PropertyRef Name="pro_id" />
+          </Key>
+          <Property Name="pro_id" Type="Int32" Nullable="false" />
+          <Property Name="pro_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="yc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="etd_program_detail">
+          <Key>
+            <PropertyRef Name="m_id" />
+          </Key>
+          <Property Name="m_id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pro_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="dbIoTFac2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="etd_model_detail" EntityType="Self.etd_model_detail" />
+          <EntitySet Name="etd_mst_model" EntityType="Self.etd_mst_model" />
+          <EntitySet Name="etd_mst_program" EntityType="Self.etd_mst_program" />
+          <EntitySet Name="etd_program_detail" EntityType="Self.etd_program_detail" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbIoTFac2ModelStoreContainer" CdmEntityContainer="dbIoTFac2Entities">
+          <EntitySetMapping Name="etd_model_detail">
+            <EntityTypeMapping TypeName="dbIoTFac2Model.etd_model_detail">
+              <MappingFragment StoreEntitySet="etd_model_detail">
+                <ScalarProperty Name="m_id" ColumnName="m_id" />
+                <ScalarProperty Name="p_id" ColumnName="p_id" />
+                <ScalarProperty Name="pt_id" ColumnName="pt_id" />
+                <ScalarProperty Name="r_id" ColumnName="r_id" />
+                <ScalarProperty Name="p_mid_dimension" ColumnName="p_mid_dimension" />
+                <ScalarProperty Name="p_max_dimension" ColumnName="p_max_dimension" />
+                <ScalarProperty Name="p_min_dimension" ColumnName="p_min_dimension" />
+                <ScalarProperty Name="p_cycletime" ColumnName="p_cycletime" />
+                <ScalarProperty Name="p_date" ColumnName="p_date" />
+                <ScalarProperty Name="p_user" ColumnName="p_user" />
+                <ScalarProperty Name="p_status" ColumnName="p_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="etd_mst_model">
+            <EntityTypeMapping TypeName="dbIoTFac2Model.etd_mst_model">
+              <MappingFragment StoreEntitySet="etd_mst_model">
+                <ScalarProperty Name="m_id" ColumnName="m_id" />
+                <ScalarProperty Name="m_name" ColumnName="m_name" />
+                <ScalarProperty Name="m_date" ColumnName="m_date" />
+                <ScalarProperty Name="m_user" ColumnName="m_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="etd_mst_program">
+            <EntityTypeMapping TypeName="dbIoTFac2Model.etd_mst_program">
+              <MappingFragment StoreEntitySet="etd_mst_program">
+                <ScalarProperty Name="pro_id" ColumnName="pro_id" />
+                <ScalarProperty Name="pro_name" ColumnName="pro_name" />
+                <ScalarProperty Name="yc" ColumnName="yc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="etd_program_detail">
+            <EntityTypeMapping TypeName="dbIoTFac2Model.etd_program_detail">
+              <MappingFragment StoreEntitySet="etd_program_detail">
+                <ScalarProperty Name="m_id" ColumnName="m_id" />
+                <ScalarProperty Name="pro_id" ColumnName="pro_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

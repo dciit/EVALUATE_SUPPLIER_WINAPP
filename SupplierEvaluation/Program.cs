@@ -13,13 +13,13 @@ namespace SupplierEvaluation
         /// </summary>
         [STAThread]
        
-        static void Main()
-        { 
-            string[] args = new string[] { "41256", "XXX" };
+        static void Main(string[] args)
+        {
+            //args = new string[] { "41256", "BX3" };
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new DCI_EVALUATION_SUPPLIER(args[0], args[1]));
             Application.Run(new F_MANAGE_DELIVERY(args[0], args[1]));
+            //Application.Run(new F_MANAGE_DELIVERY(args[0], args[1]));
 
             //if ()
             //{

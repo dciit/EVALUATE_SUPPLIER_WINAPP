@@ -11,12 +11,12 @@ namespace EvaluationSupplier
     {
         ConnectDB conSDCM = new ConnectDB("DBSCM");
         ConnectDB conDBDCI = new ConnectDB("DBDCI");
-        public List<MVender> getListVendor()
+        public List<MVender> getListVendor(string buyerCode = "")
         {
             List<MVender> list = new List<MVender>();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "SELECT * FROM [dbSCM].[dbo].[AL_Vendor] ORDER BY VenderName ASC";
-            //cmd.CommandText = "SELECT * FROM [dbSCM].[dbo].[AL_Vendor] WHERE Vender = '020013'";
+            //cmd.CommandText = "SELECT * FROM [dbSCM].[dbo].[AL_Vendor] ORDER BY VenderName ASC";
+            cmd.CommandText = @"SELECT A.CODE AS Empcode,A.REF_CODE AS Vender,B.VenderName FROM [dbSCM].[dbo].[DO_DictMstr] A LEFT JOIN AL_Vendor B ON A.REF_CODE = B.Vender WHERE A.DICT_TYPE = 'BUYER' AND A.CODE LIKE '%" + buyerCode + "' GROUP BY A.CODE  ,A.REF_CODE  ,B.VenderName ORDER BY B.VenderName ASC";
             DataTable dt = conSDCM.Query(cmd);
             foreach(DataRow dr in dt.Rows)
             {
@@ -467,6 +467,27 @@ namespace EvaluationSupplier
                 vdSort = B.vd_sort
             }).ToList();
             return result;
+        }
+
+        internal List<MBuyer> getListBuyer()
+        {
+            List<MBuyer> list = new List<MBuyer>();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"SELECT DISTINCT DICT.CODE,CONCAT(EMP.NAME,' ',EMP.SURN) AS NAME 
+FROM [dbSCM].[dbo].[DO_DictMstr] DICT 
+LEFT JOIN  [dbHRM].[dbo].[Employee] EMP 
+ON TRIM(DICT.CODE)  COLLATE SQL_Latin1_General_CP1_CI_AS = TRIM(EMP.CODE)  COLLATE SQL_Latin1_General_CP1_CI_AS  
+WHERE DICT.DICT_TYPE = 'BUYER' AND DICT.DICT_STATUS = 'ACTIVE' AND EMP.RESIGN = '1900-01-01'
+ORDER BY DICT.CODE ASC"; 
+            DataTable dt = conSDCM.Query(cmd);
+            foreach (DataRow dr in dt.Rows)
+            {
+                MBuyer item = new MBuyer();
+                item.code = dr["CODE"].ToString();
+                item.name = dr["NAME"].ToString();
+                list.Add(item);
+            }
+            return list;
         }
 
         //interface 

@@ -22,6 +22,7 @@ namespace SupplierEvaluation
         Service service = new Service();
         List<MEvaluate> listEva = new List<MEvaluate>();
         List<MVender> listVender = new List<MVender>();
+        List<MBuyer> listBuyer = new List<MBuyer>();
         private MUser mUser = new MUser();
         public string _YEAR = "";
         public string _MONTH = "";
@@ -29,6 +30,7 @@ namespace SupplierEvaluation
         public string _VD_NAME = "";
         public string _VD_CODE = "";
         public int _VD_INDEX = 0;
+        public int _BUYER_INDEX = 0;
         private string _UID = "";
         private string _SYSID = "";
         public F_MANAGE_DELIVERY(string UID,string SYSID)
@@ -45,14 +47,14 @@ namespace SupplierEvaluation
 
         private void btnAddEvaluation_Click(object sender, EventArgs e)
         {
-            F_ADD_EVALUATE fAddEva = new F_ADD_EVALUATE(_UID,this);
+            F_ADD_EVALUATE fAddEva = new F_ADD_EVALUATE(_UID,_BUYER_INDEX,_VD_INDEX,this);
             fAddEva.ShowDialog();
         }
 
         public void refreshGvEvaluete(int indexVdCode)
         {
             cbVender.SelectedIndex = indexVdCode;
-            _VD_CODE = listVender[indexVdCode-1].Vender;
+            _VD_CODE = listVender[indexVdCode].Vender;
             initGvEvaluate();
         }
 
@@ -60,7 +62,7 @@ namespace SupplierEvaluation
         {
             this.Text += " (" + _SYSID + ") (" + _VER + ")";
             initUser();
-            listVender = service.getListVendor();
+            listBuyer = service.getListBuyer();
             setFilter();
             _YEAR = cbYear.Text;
             _MONTH = cbMonth.Text;
@@ -82,7 +84,7 @@ namespace SupplierEvaluation
 
         private void setFilter()
         {
-            for(int i = 0; i <= 5; i++)
+            for(int i = 0; i <= 2; i++)
             {
                 cbYear.Items.Add(DateTime.Now.Year - i);
             }
@@ -93,25 +95,52 @@ namespace SupplierEvaluation
                 cbMonth.Items.Add(month);
             }
             cbMonth.SelectedIndex = DateTime.Now.Month - 1;
-            cbVender.Items.Add("  -- Please Select --  ");
-            foreach(MVender vd in listVender)
+            setFilterBuyer();
+            setFilterVender();
+        }
+
+        private void setFilterBuyer()
+        {
+            foreach (MBuyer buyer in listBuyer)
             {
-                cbVender.Items.Add("(" + vd.Vender + ") " + vd.VenderName); 
+                if (buyer.code == "")
+                {
+                    cbBuyer.Items.Add(buyer.name);
+                }
+                else
+                {
+                    cbBuyer.Items.Add("(" + buyer.code + ") " + buyer.name);
+                }
+            }
+            cbBuyer.SelectedIndex = 0;
+            _BUYER_INDEX = cbBuyer.SelectedIndex;
+        }
+
+        private void setFilterVender()
+        {
+            string buyerSelected = listBuyer[cbBuyer.SelectedIndex].code;
+            cbVender.Items.Clear();
+            listVender = service.getListVendor(buyerSelected);
+            foreach (MVender vd in listVender)
+            {
+                cbVender.Items.Add("(" + vd.Vender + ") " + vd.VenderName);
             }
             cbVender.SelectedIndex = 0;
+            _VD_INDEX = cbVender.SelectedIndex;
         }
 
         private void btnEvaluation_Click(object sender, EventArgs e)
         {
-            if (cbVender.SelectedIndex != 0)
-            {
-                _VD_CODE = listVender[cbVender.SelectedIndex - 1].Vender;
+
+            //if (cbVender.SelectedIndex != 0)
+            //{
+                _VD_CODE = listVender[cbVender.SelectedIndex].Vender;
                 initGvEvaluate();
-            }
-            else
-            {
-                lbAlert.Text = "กรุณาเลือกรายการ Supplier ...";
-            }
+            //}
+            //else
+            //{
+            //    lbAlert.Text = "กรุณาเลือกรายการ Supplier ...";
+            //}
         }
 
         private void initGvEvaluate()
@@ -158,19 +187,19 @@ namespace SupplierEvaluation
 
         private void btnViewEvaluate_Click(object sender, EventArgs e)
         {
-            if (_VD_INDEX >0 )
-            {
+            //if (_VD_INDEX > 0 )
+            //{
                 _VD_NAME = cbVender.SelectedItem.ToString();
-                _VD_CODE = listVender[cbVender.SelectedIndex - 1].Vender;
+                _VD_CODE = listVender[cbVender.SelectedIndex].Vender;
                 _MONTH_INDEX = cbMonth.SelectedIndex;
                 _YEAR = cbYear.SelectedItem.ToString();
                 F_VIEW_EVALUATE frmViewEvaluate = new F_VIEW_EVALUATE(this);
                 frmViewEvaluate.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("กรุณาเลือก Supplier !!!");
-            }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("กรุณาเลือก Supplier !!!");
+            //}
         }
 
         private void cbMonth_SelectedIndexChanged(object sender, EventArgs e)
@@ -197,6 +226,12 @@ namespace SupplierEvaluation
         private void cbMonth_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void cbBuyer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _BUYER_INDEX = cbBuyer.SelectedIndex;
+            setFilterVender();
         }
     }
 }

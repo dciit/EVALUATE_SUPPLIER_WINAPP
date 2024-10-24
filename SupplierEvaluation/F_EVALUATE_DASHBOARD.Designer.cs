@@ -201,9 +201,9 @@
             this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label35.Location = new System.Drawing.Point(44, 37);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(112, 16);
+            this.label35.Size = new System.Drawing.Size(115, 16);
             this.label35.TabIndex = 29;
-            this.label35.Text = "- D1 Accident[-10]";
+            this.label35.Text = "- D1 Accident.[-10]";
             // 
             // label36
             // 
@@ -211,9 +211,9 @@
             this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label36.Location = new System.Drawing.Point(44, 85);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(154, 16);
+            this.label36.Size = new System.Drawing.Size(157, 16);
             this.label36.TabIndex = 31;
-            this.label36.Text = "- D3 Letter information[-3]";
+            this.label36.Text = "- D3 Letter information.[-3]";
             // 
             // label37
             // 
@@ -221,9 +221,9 @@
             this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label37.Location = new System.Drawing.Point(44, 61);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(227, 16);
+            this.label37.Size = new System.Drawing.Size(230, 16);
             this.label37.TabIndex = 30;
-            this.label37.Text = "- D2 Property Damage & Near Miss[-5]";
+            this.label37.Text = "- D2 Property Damage & Near Miss.[-5]";
             // 
             // G_C
             // 
@@ -263,9 +263,9 @@
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label30.Location = new System.Drawing.Point(44, 37);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(129, 16);
+            this.label30.Size = new System.Drawing.Size(132, 16);
             this.label30.TabIndex = 29;
-            this.label30.Text = "- C1 Mix drawing[-10]";
+            this.label30.Text = "- C1 Mix drawing.[-10]";
             // 
             // label32
             // 
@@ -388,9 +388,9 @@
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label24.Location = new System.Drawing.Point(44, 85);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(200, 16);
+            this.label24.Size = new System.Drawing.Size(151, 16);
             this.label24.TabIndex = 31;
-            this.label24.Text = "- A3 Delivery on time (+,- 2Hr).[-5]";
+            this.label24.Text = "- A3 Delivery on time.[-5]";
             // 
             // label23
             // 
@@ -400,7 +400,7 @@
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(172, 16);
             this.label23.TabIndex = 30;
-            this.label23.Text = "- A2 Delay delivery date [-5]";
+            this.label23.Text = "- A2 Delay delivery date.[-5]";
             // 
             // lbGrade
             // 
@@ -414,7 +414,7 @@
             this.lbGrade.Text = "A";
             this.lbGrade.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // frmShowDashboard
+            // F_EVALUATE_DASHBOARD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -426,7 +426,7 @@
             this.Controls.Add(this.G_B);
             this.Controls.Add(this.G_A);
             this.Controls.Add(this.lbGrade);
-            this.Name = "frmShowDashboard";
+            this.Name = "F_EVALUATE_DASHBOARD";
             this.Text = "frmShowDashboard";
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();

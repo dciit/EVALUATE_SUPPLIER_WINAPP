@@ -55,6 +55,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAddEvaluation = new System.Windows.Forms.Button();
+            this.cbBuyer = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gvEvaluate)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -76,11 +78,11 @@
             this.ColCreateBy,
             this.colDelete});
             this.gvEvaluate.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gvEvaluate.Location = new System.Drawing.Point(18, 254);
+            this.gvEvaluate.Location = new System.Drawing.Point(18, 306);
             this.gvEvaluate.Name = "gvEvaluate";
             this.gvEvaluate.ReadOnly = true;
             this.gvEvaluate.RowHeadersVisible = false;
-            this.gvEvaluate.Size = new System.Drawing.Size(786, 440);
+            this.gvEvaluate.Size = new System.Drawing.Size(786, 388);
             this.gvEvaluate.TabIndex = 41;
             this.gvEvaluate.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvEvaluate_CellContentClick);
             // 
@@ -183,6 +185,8 @@
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.cbBuyer);
+            this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.btnViewEvaluate);
             this.panel2.Controls.Add(this.lbAlert);
             this.panel2.Controls.Add(this.ic_loading);
@@ -195,7 +199,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(20, 33);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(782, 157);
+            this.panel2.Size = new System.Drawing.Size(782, 208);
             this.panel2.TabIndex = 52;
             // 
             // btnViewEvaluate
@@ -206,7 +210,7 @@
             this.btnViewEvaluate.ForeColor = System.Drawing.Color.White;
             this.btnViewEvaluate.Image = global::SupplierEvaluation.Properties.Resources.icons8_search_30;
             this.btnViewEvaluate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnViewEvaluate.Location = new System.Drawing.Point(345, 95);
+            this.btnViewEvaluate.Location = new System.Drawing.Point(345, 140);
             this.btnViewEvaluate.Name = "btnViewEvaluate";
             this.btnViewEvaluate.Padding = new System.Windows.Forms.Padding(12, 0, 12, 0);
             this.btnViewEvaluate.Size = new System.Drawing.Size(200, 47);
@@ -221,7 +225,7 @@
             this.lbAlert.AutoSize = true;
             this.lbAlert.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lbAlert.ForeColor = System.Drawing.Color.Red;
-            this.lbAlert.Location = new System.Drawing.Point(109, 110);
+            this.lbAlert.Location = new System.Drawing.Point(146, 156);
             this.lbAlert.Name = "lbAlert";
             this.lbAlert.Size = new System.Drawing.Size(0, 20);
             this.lbAlert.TabIndex = 55;
@@ -229,7 +233,7 @@
             // ic_loading
             // 
             this.ic_loading.Image = global::SupplierEvaluation.Properties.Resources.ic_loading_2;
-            this.ic_loading.Location = new System.Drawing.Point(296, 101);
+            this.ic_loading.Location = new System.Drawing.Point(296, 146);
             this.ic_loading.Name = "ic_loading";
             this.ic_loading.Size = new System.Drawing.Size(40, 37);
             this.ic_loading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -242,7 +246,7 @@
             this.cbMonth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.cbMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.cbMonth.FormattingEnabled = true;
-            this.cbMonth.Location = new System.Drawing.Point(345, 62);
+            this.cbMonth.Location = new System.Drawing.Point(345, 107);
             this.cbMonth.Name = "cbMonth";
             this.cbMonth.Size = new System.Drawing.Size(380, 28);
             this.cbMonth.TabIndex = 46;
@@ -253,7 +257,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label2.Location = new System.Drawing.Point(269, 67);
+            this.label2.Location = new System.Drawing.Point(269, 112);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 20);
             this.label2.TabIndex = 48;
@@ -264,7 +268,7 @@
             this.cbYear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.cbYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.cbYear.FormattingEnabled = true;
-            this.cbYear.Location = new System.Drawing.Point(113, 63);
+            this.cbYear.Location = new System.Drawing.Point(113, 108);
             this.cbYear.Name = "cbYear";
             this.cbYear.Size = new System.Drawing.Size(138, 28);
             this.cbYear.TabIndex = 45;
@@ -279,7 +283,7 @@
             this.btnEvaluation.ForeColor = System.Drawing.Color.White;
             this.btnEvaluation.Image = global::SupplierEvaluation.Properties.Resources.icons8_search_30;
             this.btnEvaluation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEvaluation.Location = new System.Drawing.Point(551, 95);
+            this.btnEvaluation.Location = new System.Drawing.Point(551, 140);
             this.btnEvaluation.Name = "btnEvaluation";
             this.btnEvaluation.Padding = new System.Windows.Forms.Padding(12, 0, 12, 0);
             this.btnEvaluation.Size = new System.Drawing.Size(175, 47);
@@ -294,7 +298,7 @@
             this.cbVender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.cbVender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.cbVender.FormattingEnabled = true;
-            this.cbVender.Location = new System.Drawing.Point(113, 27);
+            this.cbVender.Location = new System.Drawing.Point(113, 72);
             this.cbVender.Name = "cbVender";
             this.cbVender.Size = new System.Drawing.Size(612, 28);
             this.cbVender.TabIndex = 49;
@@ -305,7 +309,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label3.Location = new System.Drawing.Point(26, 27);
+            this.label3.Location = new System.Drawing.Point(24, 72);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(85, 20);
             this.label3.TabIndex = 50;
@@ -315,7 +319,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label1.Location = new System.Drawing.Point(52, 67);
+            this.label1.Location = new System.Drawing.Point(51, 114);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 20);
             this.label1.TabIndex = 47;
@@ -329,7 +333,7 @@
             this.btnAddEvaluation.ForeColor = System.Drawing.Color.White;
             this.btnAddEvaluation.Image = global::SupplierEvaluation.Properties.Resources.ic_plus_white;
             this.btnAddEvaluation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddEvaluation.Location = new System.Drawing.Point(18, 196);
+            this.btnAddEvaluation.Location = new System.Drawing.Point(18, 247);
             this.btnAddEvaluation.Name = "btnAddEvaluation";
             this.btnAddEvaluation.Padding = new System.Windows.Forms.Padding(12, 0, 12, 0);
             this.btnAddEvaluation.Size = new System.Drawing.Size(254, 53);
@@ -338,6 +342,27 @@
             this.btnAddEvaluation.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAddEvaluation.UseVisualStyleBackColor = false;
             this.btnAddEvaluation.Click += new System.EventHandler(this.btnAddEvaluation_Click);
+            // 
+            // cbBuyer
+            // 
+            this.cbBuyer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.cbBuyer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cbBuyer.FormattingEnabled = true;
+            this.cbBuyer.Location = new System.Drawing.Point(113, 38);
+            this.cbBuyer.Name = "cbBuyer";
+            this.cbBuyer.Size = new System.Drawing.Size(612, 28);
+            this.cbBuyer.TabIndex = 57;
+            this.cbBuyer.SelectedIndexChanged += new System.EventHandler(this.cbBuyer_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label5.Location = new System.Drawing.Point(41, 38);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(68, 20);
+            this.label5.TabIndex = 58;
+            this.label5.Text = "Buyer : ";
             // 
             // F_MANAGE_DELIVERY
             // 
@@ -349,7 +374,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "F_MANAGE_DELIVERY";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ประเมินผลการจัดส่ง";
+            this.Text = "ประเมินผลการจัดส่ง (1.00)";
             this.Load += new System.EventHandler(this.F_MANAGE_DELIVERY_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvEvaluate)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -384,5 +409,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCreateBy;
         private System.Windows.Forms.DataGridViewButtonColumn colDelete;
         private System.Windows.Forms.Button btnViewEvaluate;
+        private System.Windows.Forms.ComboBox cbBuyer;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -121,7 +121,7 @@ namespace SupplierEvaluation
             SmtpServer.Port = 25;
             SmtpServer.UseDefaultCredentials = false;
             mail.From = new MailAddress("dcialpha-noreply@dci.daikin.co.jp");
-            mail.To.Add("peerapong.k@dci.daikin.co.jp");
+            mail.To.Add("peerapong.k@dci.daikin.co.jp,withchapon.t@dci.daikin.co.jp");
             //mail.To.Add("peerapong.k@dci.daikin.co.jp,aukit.k@dci.daikin.co.jp");
             mail.Subject = "SUBJECT";
             mail.IsBodyHtml = true;

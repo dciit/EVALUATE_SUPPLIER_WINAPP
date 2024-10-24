@@ -25,13 +25,18 @@ namespace SupplierEvaluation
         private DateTime _DATE = new DateTime();
         Service service = new Service();
         List<MVender> rVd = new List<MVender>();
+        List<MBuyer> rBuyer = new List<MBuyer>();
         private readonly F_MANAGE_DELIVERY fManageDelivery;
         MUser mUser = new MUser();
-        public F_ADD_EVALUATE(string uid, F_MANAGE_DELIVERY f_MANAGE_DELIVERY)
+        private int _BuyerIndex = 0;
+        private int _VenderIndex = 0;
+        public F_ADD_EVALUATE(string uid,int buyerIndex,int venderIndex, F_MANAGE_DELIVERY f_MANAGE_DELIVERY)
         {
             InitializeComponent();
             _UID = uid;
             fManageDelivery = f_MANAGE_DELIVERY;
+            _VenderIndex = venderIndex;
+            _BuyerIndex = buyerIndex;
         }
 
         private void btnSaveData_Click(object sender, EventArgs e)
@@ -65,12 +70,32 @@ namespace SupplierEvaluation
             }
         }
 
-        private void setCbVender()
+
+        private void setCbBuyer(int indexBuyer = 0)
         {
-            rVd = service.getListVendor();
+            rBuyer = service.getListBuyer();
+            cbBuyer.DisplayMember = "Value";
+            cbBuyer.ValueMember = "Key";
+            foreach (MBuyer item in rBuyer)
+            {
+                if (item.code == "")
+                {
+                    cbBuyer.Items.Add(new KeyValuePair<string, string>(item.code, item.name));
+                }
+                else
+                {
+                    cbBuyer.Items.Add(new KeyValuePair<string, string>(item.code, " (" + item.code + ") " + item.name));
+                }
+            }
+            cbBuyer.SelectedIndex = indexBuyer;
+            _BuyerIndex = cbBuyer.SelectedIndex;
+        }
+        private void setCbVender(string buyerCode = "")
+        {
+            rVd = service.getListVendor(buyerCode);
+            cbSupplier.Items.Clear();
             cbSupplier.DisplayMember = "Value";
             cbSupplier.ValueMember = "Key";
-            cbSupplier.Items.Add(new KeyValuePair<string, string>("", "--- Please Select ---"));
             foreach (MVender item in rVd)
             {
                 cbSupplier.Items.Add(new KeyValuePair<string, string>(item.Vender," (" + item.Vender + ") " + item.VenderName));
@@ -130,10 +155,11 @@ namespace SupplierEvaluation
         private void F_ADD_EVALUATE_Load(object sender, EventArgs e)
         {
             initUser();
-            setCbVender();
+            setCbBuyer(_BuyerIndex);
+            setCbVender(rBuyer[_BuyerIndex].code);
             ChoiceEvaluation.Add("A1", new MChoiceEva("A1 : Delay impact to shotage (-10)", 10));
             ChoiceEvaluation.Add("A2", new MChoiceEva("A2 : Delay delivery date (-5)", 5));
-            ChoiceEvaluation.Add("A3", new MChoiceEva("A3 : Delivery on time (+,-2hr)", 5));
+            ChoiceEvaluation.Add("A3", new MChoiceEva("A3 : Delivery on time", 5));
             ChoiceEvaluation.Add("B1", new MChoiceEva("B1 : Tag Barcode mistake&No attach E-Invoice (-5)", 5));
             ChoiceEvaluation.Add("B2", new MChoiceEva("B2 : Referance Mistake Po no.,Q'ty,Unit price (-5)", 5));
             ChoiceEvaluation.Add("B3", new MChoiceEva("B3 : No Attach Data Inspection (-5)", 5));
@@ -174,6 +200,17 @@ namespace SupplierEvaluation
         private void cbType_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled= true;
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cbBuyer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _BuyerIndex = cbBuyer.SelectedIndex;
+            setCbVender(rBuyer[_BuyerIndex].code);
         }
     }
 
